@@ -1,0 +1,41 @@
+name: reminder_app_interview_task
+description: "A premium cross-platform Reminder Application."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_local_notifications: ^19.0.0
+  timezone: ^0.10.0
+  shared_preferences: ^2.3.0
+  google_fonts: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+  adaptive_icon_background: "#050B14"
+  adaptive_icon_foreground: "assets/logo.png"
+  # Monochrome icon for Android 13+ (Settings/Task switcher)
+  adaptive_icon_monochrome: "assets/logo.png"
+  # Specific notification icon configuration
+  android_notification_icon:
+    enabled: true
+    image_path: "assets/logo.png"
+    icon_name: "ic_notification"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.png
