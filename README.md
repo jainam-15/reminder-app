@@ -1,4 +1,5 @@
 # Reminder App 🔔
+### Built for a cross-platform mobile developer assessment focused on notifications, lifecycle handling, and deep linking.
 
 A modern, minimal, and production-focused cross-platform Reminder Application built with Flutter.
 
@@ -122,8 +123,8 @@ Flutter was chosen because it enables:
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
-cd reminder_app_interview_task
+git clone https://github.com/jainam-15/reminder-app.git
+cd reminder-app
 ```
 
 ### 2. Install dependencies
