@@ -1,0 +1,39 @@
+# codemagic.yaml
+# Complete Codemagic configuration for generating an iOS Simulator build compatible with Appetize.io.
+# Places the zipped Runner.app.zip in build/ios/iphonesimulator/Runner.app.zip.
+
+workflows:
+  ios-simulator-build:
+    name: iOS Simulator Build
+    max_build_duration: 60
+    instance_type: mac_mini_m2 # M2 Mac mini for high performance and fast build speeds
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: '*'
+          include: true
+          source: true
+    scripts:
+      - name: Precache Flutter iOS artifacts
+        script: |
+          flutter precache --ios
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+      - name: Install CocoaPods
+        script: |
+          cd ios && pod install
+      - name: Build Flutter iOS App for Simulator
+        script: |
+          flutter build ios --simulator --debug --no-codesign
+      - name: Zip Runner.app for Appetize.io
+        script: |
+          cd build/ios/iphonesimulator
+          zip -r Runner.app.zip Runner.app
+    artifacts:
+      - build/ios/iphonesimulator/Runner.app.zip
